@@ -106,19 +106,19 @@ if __name__ == '__main__':
     def check(itr) -> bool:
         for x, y in zip(itr[:-1], itr[1:]):
             if x > y:
-                print(f'Mismatch: {x}, {y}')
-                return False
-        return True
-
-    sorter = BucketSort(IntStrategy())
+                raise ValueError(f'Mismatch: {x}, {y}')
 
     print('Generating values.')
     l = [random.randint(0, 10000000) for _ in range(100000)]
 
     print('Sorting.')
-    sl = sorter.sorted(l)
-    print('Done sorting. Checking... ', end='')
-    if not check(sl):
-        print(sl)
-    else:
+    sl = sorted(l)
+    print('Done sorting.')
+
+    print('Checking... ', end='')
+    try:
+        check(sl)
         print('sorted')
+    except ValueError:
+        print('NOT sorted')
+        print(sl)
