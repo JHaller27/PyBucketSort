@@ -1,7 +1,7 @@
 import random
 
 
-class BucketSortStrategy:
+class TypeStrategy:
     def get_num_buckets(self) -> int:
         raise NotImplementedError
 
@@ -15,7 +15,7 @@ class BucketSortStrategy:
         raise NotImplementedError
 
 
-class IntStrategy(BucketSortStrategy):
+class IntStrategy(TypeStrategy):
     def get_num_buckets(self) -> int:
         return 10
 
@@ -44,7 +44,7 @@ class IntStrategy(BucketSortStrategy):
         return value // (10**itr_num)
 
 
-class AsciiStrategy(BucketSortStrategy):
+class AsciiStrategy(TypeStrategy):
     def get_num_buckets(self) -> int:
         return 129
 
@@ -59,7 +59,7 @@ class AsciiStrategy(BucketSortStrategy):
 
 
 class BucketSort:
-    def __init__(self, strategy: BucketSortStrategy):
+    def __init__(self, strategy: TypeStrategy):
         self._strategy = strategy
 
     def sorted(self, itr) -> list:
