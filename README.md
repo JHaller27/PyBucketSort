@@ -1,4 +1,4 @@
-# Bucket Sort
+# Radix Sort
 
 This implementation is classy (object-oriented) with an optional functional entry-point.
 
@@ -13,7 +13,7 @@ Note that the collections to be sorted can be any kind of iterable, but they wil
 ## Usage: Functional
 
 ```python
-import bucket_sort as bs
+import radix_sort as bs
 
 # Get some data
 
@@ -23,7 +23,7 @@ sorted_data = bs.sorted(some_data)
 ## Usage: Classy
 
 ```python
-import bucket_sort as bs
+import radix_sort as bs
 
 # Get some data
 
@@ -32,7 +32,7 @@ import bucket_sort as bs
 type_strategy = IntStrategy()
 type_strategy = AsciiStrategy()
 
-sorter = bs.BucketSort(type_strategy)
+sorter = bs.RadixSort(type_strategy)
 
 sorted_data = sorter.sorted(some_data)
 ```
@@ -44,4 +44,4 @@ all you need to do is create a new class and inherit from the `TypeStrategy` cla
 
 You MUST follow the type annotations on the `TypeStrategy` class.
 
-Once you've created your new Strategy, pass it into the `BucketSort` constructor as in the _Usage: Classy_ section above.
+Once you've created your new Strategy, pass it into the `RadixSort` constructor as in the _Usage: Classy_ section above.

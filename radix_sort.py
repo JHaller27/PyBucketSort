@@ -58,7 +58,7 @@ class AsciiStrategy(TypeStrategy):
         return ord(value[-itr_num-1]) + 1
 
 
-class BucketSort:
+class RadixSort:
     def __init__(self, strategy: TypeStrategy):
         self._strategy = strategy
 
@@ -99,7 +99,7 @@ def sorted(values, strategy=None):
         else:
             raise TypeError(f"List contains unsupported types, or element types or mismatched: {values}")
 
-    return BucketSort(strategy).sorted(values)
+    return RadixSort(strategy).sorted(values)
 
 
 if __name__ == '__main__':
